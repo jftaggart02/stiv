@@ -1,8 +1,13 @@
 [project]
 name = "stiv_control"
-version = "0.1.0"
+version = "0.0.1"
 description = "Package description here."
 authors = [{name="Joshua Taggart", email="jftaggart02@gmail.com"}]
 license = {text = "MIT"}
 dependencies = [
+    "torch",
+    "torchvision",
+    "numpy",
+    "Pillow",
+    "pandas"
 ]
