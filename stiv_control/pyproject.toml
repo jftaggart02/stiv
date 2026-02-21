@@ -9,5 +9,6 @@ dependencies = [
     "torchvision",
     "numpy",
     "Pillow",
-    "pandas"
+    "pandas",
+    "tqdm",
 ]
