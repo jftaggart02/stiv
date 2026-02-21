@@ -1,4 +1,36 @@
-"""Training script for the SteeringNet neural network."""
+"""Training script for the SteeringNet neural network.
+
+Features:
+- Automatic train/validation split
+- Model checkpointing (every 5 epochs and best model)
+- Training history logging (JSON format)
+- GPU/CPU support with automatic detection
+- Resume training from checkpoint
+
+Usage example:
+```
+python train_steering_net.py \
+--dataset-dir /path/to/dataset \
+--output-dir ./checkpoints \
+--batch-size 32 \
+--num-epochs 50 \
+--learning-rate 0.0001 \
+--color-space YCbCr
+```
+
+Args:
+    --dataset-dir: Path to dataset directory containing 'images/' and 'labels.csv'
+    --output-dir: Directory to save model checkpoints and training history
+    --batch-size: Batch size for training
+    --num-epochs: Number of training epochs
+    --learning-rate: Learning rate for optimizer
+    --val-split: Fraction of data to use for validation (default: 0.2)
+    --image-height: Image height (default: 66, as used in DAVE-2)
+    --image-width: Image width (default: 200, as used in DAVE-2)
+    --color-space: Color space for images (default: RGB, DAVE-2 uses YUV/YCbCr)
+    --num-workers: Number of worker processes for data loading (default: 4)
+    --checkpoint: Path to checkpoint to resume training from (default: None)
+"""
 
 import argparse
 import torch
@@ -122,6 +154,7 @@ def save_checkpoint(
 
 
 def main() -> None:
+    """Main function to train the SteeringNet model."""
     parser = argparse.ArgumentParser(description="Train SteeringNet")
     parser.add_argument(
         "--dataset-dir", type=str, required=True, help="Path to dataset directory containing images/ and labels.csv"
@@ -191,6 +224,7 @@ def main() -> None:
 
     # Initialize a dummy input to compute lazy layers
     with torch.no_grad():
+        # PyTorch uses the convention (batch_size, channels, height, width) for image tensors
         dummy_input = torch.randn(1, 3, args.image_height, args.image_width).to(device)
         model(dummy_input)
 
