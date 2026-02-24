@@ -24,6 +24,14 @@ class SteeringDataset(Dataset):
         labels.csv
     ```
 
+    labels.csv format:
+    ```
+    index,timestamp,steering
+    1,1697051234.123456,0.034
+    2,1697051234.156789,0.041
+    ...
+    ```
+
     Args:
         dataset_dir: Path to the dataset directory containing 'images/' and 'labels.csv'.
         transform: Optional torchvision transforms to apply to images.
