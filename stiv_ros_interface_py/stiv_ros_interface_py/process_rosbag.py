@@ -1,4 +1,3 @@
-#!/usr/bin/env python3
 """
 Post-process a rosbag containing /image_raw and /movement_control topics
 into a structured dataset for training steering models.
