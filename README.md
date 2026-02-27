@@ -32,3 +32,15 @@ Test joystick with ROS
 ros2 run joy joy_node
 ros2 topic echo /joy  # in another terminal
 ```
+
+## Run Teleop Node
+
+Make sure you have the `stiv_ros_interface_py` package built and sourced. Then run the joystick node:
+```
+ros2 run joy joy_node
+```
+
+In another terminal, run the teleop node:
+```
+ros2 run stiv_ros_interface_py teleop_node
+```
