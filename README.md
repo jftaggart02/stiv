@@ -40,6 +40,8 @@ Activate lab computer hotspot and have jetson connect to it. Then make sure both
 
 ## Joystick Setup
 
+Plug in your joystick to a USB port.
+
 Install joystick package.
 ```
 sudo apt install ros-jazzy-joy
