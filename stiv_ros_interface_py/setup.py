@@ -24,6 +24,7 @@ setup(
     entry_points={
         "console_scripts": [
             "process_rosbag = stiv_ros_interface_py.process_rosbag:main",
+            "teleop_node = stiv_ros_interface_py.teleop_node:main",
         ],
     },
 )
