@@ -22,8 +22,8 @@ Install the workspace and create a virtual environment.
 ```
 mkdir -p stiv_ws/src
 cd stiv_ws/src
-git clone https://github.com/jftaggart02/stiv
-git clone https://gitlab.com/utahstate/droge-robotics/general_research_code/rosmaster_r2_akm_driver  # for message definitions
+git clone https://github.com/jftaggart02/stiv.git
+git clone git@gitlab.com:utahstate/droge-robotics/general_research_code/rosmaster_r2_akm_driver.git # for message definitions
 cd ..
 make_venv
 build
