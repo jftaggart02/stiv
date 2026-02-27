@@ -33,6 +33,10 @@ Whenever you open a new terminal, run the following command (from the stiv_ws di
 sd
 ```
 
+## Network Setup
+
+Activate lab computer hotspot and have jetson connect to it. Then make sure both have the same ROS_DOMAIN_ID.
+
 ## Joystick Setup
 
 Install joystick package.
