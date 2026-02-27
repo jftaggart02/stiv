@@ -9,6 +9,30 @@
 - `stiv_ros_interface_py`: ROS2 interface for Python functionality.
 - `stiv_msgs`: Language-agnostic ROS2 message and service definitions. 
 
+## Installation
+
+.bashrc aliases
+```
+alias make_venv='python3 -m venv --system-site-packages venv && touch venv/COLCON_IGNORE && source venv/bin/activate && rosdep install --from-paths src --ignore-src -r -y'
+alias sd='source /opt/ros/jazzy/setup.bash && source venv/bin/activate && . install/setup.bash'
+alias build='source /opt/ros/jazzy/setup.bash && source venv/bin/activate && python3 -m colcon build && . install/local_setup.bash'
+```
+
+Install the workspace and create a virtual environment.
+```
+mkdir -p stiv_ws/src
+cd stiv_ws/src
+git clone https://github.com/jftaggart02/stiv
+cd ..
+make_venv
+build
+```
+
+Whenever you open a new terminal, run the following command (from the stiv_ws directory) to source the workspace and activate the virtual environment.
+```
+sd
+```
+
 ## Joystick Setup
 
 Install joystick package.
