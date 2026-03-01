@@ -23,7 +23,7 @@ def generate_launch_description():
         output="screen",
         parameters=[
             {"joy_topic": "/joy"},
-            {"control_topic": "/rm1/movement_control"},
+            {"control_topic": "/movement_control"},
             {"velocity_axis": 1},
             {"steering_axis": 2},
             {"max_velocity": 0.7},
