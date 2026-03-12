@@ -15,7 +15,7 @@ You must have a Rosmaster R2L robot with the regular Jetson Nano swapped for a J
 
 Also, the following APT packages should be installed:
 ```
-sudo apt install ros-jazzy-joy
+sudo apt install ros-humble-joy
 sudo apt-get install joystick
 ```
 
@@ -65,8 +65,8 @@ sudo python3 setup.py install
 Add the following aliases to `~/.bashrc`:
 ```
 alias make_venv='python3 -m venv --system-site-packages venv && touch venv/COLCON_IGNORE && source venv/bin/activate && rosdep install --from-paths src --ignore-src -r -y'
-alias sd='source /opt/ros/jazzy/setup.bash && source venv/bin/activate && . install/setup.bash'
-alias build='source /opt/ros/jazzy/setup.bash && source venv/bin/activate && python3 -m colcon build && . install/local_setup.bash'
+alias sd='source /opt/ros/humble/setup.bash && source venv/bin/activate && . install/setup.bash'
+alias build='source /opt/ros/humble/setup.bash && source venv/bin/activate && python3 -m colcon build && . install/local_setup.bash'
 ```
 
 Install the workspace and create a virtual environment. Note, you must have SSH key access to the `droge-robotics` gitlab group to install `rosmaster_r2_akm_driver`.
