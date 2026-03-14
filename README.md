@@ -100,6 +100,8 @@ git clone git@gitlab.com:utahstate/droge-robotics/general_research_code/rosmaste
 cd ..
 make_venv
 pip install -r ./src/stiv/stiv_ros_interface_py/requirements.txt
+pip install -e ./src/stiv/stiv_control
+pip install -e ./src/stiv/stiv_perception
 build
 ```
 
