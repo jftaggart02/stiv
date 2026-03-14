@@ -136,3 +136,21 @@ ros2 launch stiv_bringup teleop_launch.py
 ```
 
 The robot should follow your commands!
+
+## Using Rosbag to Record Camera Feed and Steering Angle
+
+First, run `ros2 launch stiv_bringup realsense_teleop.launch.py` and ensure the teleop is working properly. 
+
+Then, run the following command, but replace `[output_dir]` with a path to the desired output directory.
+```
+ros2 bag record -o [output_dir] /movement_control /camera/realsense2_camera/color/image_raw
+```
+
+Drive the car around, and when finished, hit `ctrl-c` in the terminal where you ran the rosbag record script.
+
+## Processing the Rosbag to create Dataset
+
+The `stiv_ros_interface_py` package has a script called `process_rosbag.py` that can process a Rosbag and create a dataset file structure that can be used to train the steering control network. You can type `ros2 run stiv_ros_interface_py process_rosbag --help` to see a full list of arguments. For example,
+```
+ros2 run stiv_ros_interface_py process_rosbag --image-topic /camera/realsense2_camera/color/image_raw --control-topic /movement_control ./rosbag/rosbag_test_1 ./datasets/dataset_test_1
+```
