@@ -50,7 +50,7 @@ The Jetson Orin Nano doesn't come with the CH341 driver already installed. Follo
 - Now, the device should show up: `ls /dev/ttyUSB*`
 - Additionally, the `myserial` symlink should show up when you run `ls /dev`.
 
-## Install Realsense SDK
+## Install Realsense SDK and ROS Wrapper
 
 **Important**: these instructions must be followed for installing Realsense SDK on Jetson Orin Nano! Following the instructions on the official Realsense website doesn't work because the Jetson Orin Nano uses a modified version of Ubuntu.
 
@@ -66,6 +66,11 @@ If you do, simply delete the UDEV rules in the `/etc` directory:
 sudo rm /etc/udev/rules.d/99-realsense-libusb.rules
 sudo udevadm control --reload-rules
 sudo udevadm trigger
+```
+
+Now, install the ROS2 wrapper for the Realsense SDK:
+```
+sudo apt install ros-humble-realsense2-*
 ```
 
 ## Install Rosmaster Library
