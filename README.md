@@ -50,9 +50,26 @@ The Jetson Orin Nano doesn't come with the CH341 driver already installed. Follo
 - Now, the device should show up: `ls /dev/ttyUSB*`
 - Additionally, the `myserial` symlink should show up when you run `ls /dev`.
 
+## Install Realsense SDK
+
+**Important**: these instructions must be followed for installing Realsense SDK on Jetson Orin Nano! Following the instructions on the official Realsense website doesn't work because the Jetson Orin Nano uses a modified version of Ubuntu.
+
+Follow the instructions in the README in [this repository](https://github.com/jetsonhacks/jetson-orin-librealsense).
+
+After you follow these instructions and run `realsense-viewer`, you may get the following error:
+```
+Multiple realsense udev-rules were found! : 1:/etc/udev/rules.d/99-realsense-libusb.rules 2: /lib/udev/rules.d/60-librealsense2-udev-rules.rules Make sure to remove redundancies!
+```
+
+If you do, simply delete the UDEV rules in the `/etc` directory:
+```
+sudo rm /etc/udev/rules.d/99-realsense-libusb.rules
+sudo udevadm control --reload-rules
+sudo udevadm trigger
+```
+
 ## Install Rosmaster Library
 
-Clone the repo
 ```
 cd /opt
 sudo git clone https://github.com/jftaggart02/Rosmaster_Lib.git
@@ -86,7 +103,7 @@ Whenever you open a new terminal, run the following command (from the stiv_ws di
 sd
 ```
 
-## Joystick Troubleshooting
+## Joystick Test
 
 Plug in your joystick to a USB port and run the following command to check if it is recognized by the system. You should see `js0` listed.
 ```
