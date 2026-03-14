@@ -8,6 +8,7 @@
   <license>MIT</license>
 
   <exec_depend>joy</exec_depend>
+  <exec_depend>realsense2_camera</exec_depend>
   <exec_depend>stiv_ros_interface_py</exec_depend>
 
   <test_depend>ament_copyright</test_depend>
